@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: scripture-backend
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./backend/scripture.db:/app/scripture.db
+      - ./backend/audio:/app/audio
+      - ./backend/posters:/app/posters
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: scripture-frontend
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8002
+    ports:
+      - "5200:5200"
+    restart: unless-stopped

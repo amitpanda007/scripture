@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-devanagari: "Noto Sans Devanagari", sans-serif;
+
+  --color-surface: var(--theme-surface);
+  --color-surface-elevated: var(--theme-surface-elevated);
+  --color-surface-hover: var(--theme-surface-hover);
+  --color-border-subtle: var(--theme-border-subtle);
+  --color-accent: var(--theme-accent);
+  --color-accent-dim: var(--theme-accent-dim);
+  --color-accent-glow: var(--theme-accent-glow);
+  --color-text-primary: var(--theme-text-primary);
+  --color-text-secondary: var(--theme-text-secondary);
+  --color-text-muted: var(--theme-text-muted);
+  --color-highlight-verse: var(--theme-highlight-verse);
+  --color-highlight-meaning: var(--theme-highlight-meaning);
+  --color-gold: var(--theme-gold);
+  --color-gold-dim: var(--theme-gold-dim);
+}
+
+:root {
+  --theme-surface: #f9faff;
+  --theme-surface-elevated: #ffffff;
+  --theme-surface-hover: #f1f5f9;
+  --theme-border-subtle: #e2e8f0;
+  --theme-accent: #3b82f6; /* Blue based on design image */
+  --theme-accent-dim: #2563eb;
+  --theme-accent-glow: rgba(59, 130, 246, 0.08);
+  --theme-text-primary: #0f172a;
+  --theme-text-secondary: #475569;
+  --theme-text-muted: #64748b;
+  --theme-highlight-verse: rgba(59, 130, 246, 0.08);
+  --theme-highlight-meaning: rgba(245, 158, 11, 0.08);
+  --theme-gold: #f59e0b;
+  --theme-gold-dim: #d97706;
+}
+
+.dark {
+  --theme-surface: #0f0e1a;
+  --theme-surface-elevated: #1a1830;
+  --theme-surface-hover: #252340;
+  --theme-border-subtle: #2a2848;
+  --theme-accent: #60a5fa; /* Lighter blue for dark mode */
+  --theme-accent-dim: #3b82f6;
+  --theme-accent-glow: rgba(96, 165, 250, 0.15);
+  --theme-text-primary: #f8fafc;
+  --theme-text-secondary: #cbd5e1;
+  --theme-text-muted: #94a3b8;
+  --theme-highlight-verse: rgba(96, 165, 250, 0.12);
+  --theme-highlight-meaning: rgba(251, 191, 36, 0.12);
+  --theme-gold: #fbbf24;
+  --theme-gold-dim: #d97706;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-subtle);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
