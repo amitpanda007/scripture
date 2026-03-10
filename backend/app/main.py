@@ -39,7 +39,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/audio/{scripture_slug}/{chapter_num}/{filename}")
+@app.get("/api/audio/{scripture_slug}/{chapter_num}/{filename}")
 async def get_audio_file(
     scripture_slug: str,
     chapter_num: int,
@@ -109,10 +109,10 @@ async def get_audio_file(
     
     return FileResponse(file_path)
 
-app.mount("/posters", StaticFiles(directory=str(POSTER_DIR)), name="posters")
+app.mount("/api/posters", StaticFiles(directory=str(POSTER_DIR)), name="posters")
 app.include_router(scripture_router)
 
 
-@app.get("/health")
+@app.get("/api/health")
 async def health():
     return {"status": "ok"}

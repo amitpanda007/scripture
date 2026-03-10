@@ -20,7 +20,7 @@ class Scripture(Base):
     @property
     def poster_url(self) -> str:
         poster_name = self.poster_image or f"{self.slug}.jpg"
-        return f"/posters/{poster_name}"
+        return f"/api/posters/{poster_name}"
 
 
 class Chapter(Base):

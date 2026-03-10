@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, field_validator
 
 
 class VerseOut(BaseModel):
@@ -11,6 +11,13 @@ class VerseOut(BaseModel):
     hindi_meaning: str
     scripture_audio_url: str | None = None
     meaning_audio_url: str | None = None
+
+    @field_validator("scripture_audio_url", "meaning_audio_url", mode="before")
+    @classmethod
+    def normalize_audio_url(cls, value: str | None) -> str | None:
+        if isinstance(value, str) and value.startswith("/audio/"):
+            return f"/api{value}"
+        return value
 
 
 class ChapterBrief(BaseModel):

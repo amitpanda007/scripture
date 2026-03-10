@@ -82,7 +82,7 @@ GITA_CH1_VERSES = [
     },
 ]
 
-AUDIO_BASE = "/audio"
+AUDIO_BASE = "/api/audio"
 
 
 async def seed():

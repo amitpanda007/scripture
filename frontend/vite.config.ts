@@ -70,14 +70,6 @@ export default defineConfig(({ mode }) => {
           target: apiBaseUrl,
           changeOrigin: true,
         },
-        "/audio": {
-          target: apiBaseUrl,
-          changeOrigin: true,
-        },
-        "/posters": {
-          target: apiBaseUrl,
-          changeOrigin: true,
-        },
       },
     },
   };

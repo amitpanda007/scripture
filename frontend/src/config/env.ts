@@ -9,5 +9,9 @@ export function resolveApiPath(path: string): string {
 
 export function resolveBackendUrl(path: string): string {
   if (/^https?:\/\//i.test(path)) return path;
-  return path.startsWith("/") ? path : `/${path}`;
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  if (normalized.startsWith("/audio/") || normalized.startsWith("/posters/")) {
+    return `/api${normalized}`;
+  }
+  return normalized;
 }
