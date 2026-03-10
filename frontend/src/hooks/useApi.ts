@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { resolveBackendUrl } from "../config/env";
+import { resolveApiPath } from "../config/env";
 
 interface FetchState<T> {
   data: T | null;
@@ -23,7 +23,7 @@ export function useApi<T>(path: string | null) {
 
     setState((s) => ({ ...s, loading: true, error: null }));
     try {
-      const res = await fetch(resolveBackendUrl(path), {
+      const res = await fetch(resolveApiPath(path), {
         signal: controller.signal,
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);

@@ -45,6 +45,8 @@ uvicorn app.main:app --reload --port 8002
 ```bash
 cd frontend
 npm install
+copy .env.example .env        # Windows
+# cp .env.example .env        # macOS/Linux
 npm run dev
 ```
 
